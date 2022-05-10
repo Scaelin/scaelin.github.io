@@ -210,6 +210,12 @@ input, select, textarea {
 		clear: both;
 	}
 
+	.sidecont {
+		margin-left:  5%;
+		margin-right:  5%;
+		text-align: left;
+	}
+
 /* Container */
 
 	.container {
@@ -2262,6 +2268,7 @@ input, select, textarea {
 			#main > section.four {
 				background-color: #e8edec;
 			}
+
 
 /* Wide */
 

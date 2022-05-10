@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Owen Davies</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
+							<h1 id="title">Owen Davies</h1>
+							<p>Diplômé en Game Design</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
+								<li><a href="index.html#codex" id="codex-link"><span class="icon solid fa-th">CODEX</span></a></li>
+								<li><a href="index.html#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
+								<li><a href="index.html#about" id="about-link"><span class="icon solid fa-user">Compétences</span></a></li>
+								<li><a href="index.html#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="https://scaelin.itch.io/" class="icon brands fa-itch-io"><span class="label">itch.io</span></a></li>
+							<li><a href="https://www.linkedin.com/in/owen-davies-36aaa01a2/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="index.html#contact" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+
+				</div>
+
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
+
+							<header>
+								<h2 class="alt">Aléatoire : Variance et rejouabilité</h2>
+								<p>Limites de la variance et place de l'aléatoire dans la résolution des combats</p>
+							</header>
+
+						</div>
+					</section>
+
+				
+
+				<!-- About Me -->
+					<section id="about" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Un aléatoire à différentes échelles</h2>
+							</header>
+
+							<p class="sidecont">Un des aspects que CODEX emprunte aux Roguelikes est la génération procédurale, c'est à dire que chaque partie est différente puisque la mise en place va varier sur différents aspects. En l'occurence, lors de chaque partie de CODEX, les joueurs vous avoir un lot de Zones différentes à traverser, de Créatures à combattre, et d'Objets à récupérer. Lors de chaque Acte, un des deux Boss est également tiré au hasard pour garder la sortie. Tous ces tirages n'ont pas les mêmes probabilités, mais également pas le même impact sur la difficulté de l'expérience de jeu.</p>
+
+							<div class="row">
+								<div class="col-8 col-12-mobile">
+									<p class="sidecont">Les Zones sont peut être le type de cartes qui a connu le plus de changement au cours du temps. Pendant les première versions, le nombre de Zones était fixe, tandis qu'il est désormais dépendant du nombre de joueurs. Comme la génération d'Objets est dépendante du tirage des Zones et de leur quantité, les effets des Zones ont dû être adaptés en conséquence. Un type de Zone qui a été écarté est le type "interaction" (comme la Chapelle ici). Ces Zones avaient des effets utilisables par les joueurs qui s'y trouvaient. Ce type de design s'est révélé problématique pour plusieurs raisons. D'abord, il créait une variance trop importante de difficulté entre les Chapitres avec ces Zones, et les Chapitre sans (sans compter l'impact du regain de Rations qui est normalement une ressource limitée, mais il s'agit davantage du cas de la Chapelle plus particulièrement). Ensuite, il ajoutait une surcouche de complexité au jeu qui rendait les situations globales difficiles à appréhender. En déplaçant la majorité de la complexité vers les Créatures, cela me permet de concentrer l'attention des joueurs sur le l'intérêt réel du jeu, et pas sur des systèmes annexes comme celui ci.</p>
+								</div>
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/oldchapelle.png" alt="" />
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-8 col-12-mobile">
+									<p class="sidecont">Certaines Zones permettent également d'accéder à des Objets spécifiques, des Secrets, ou des Boss intermédiaires. Ces Zones ne peuvent pas être présentes en plusieurs exemplaires, puisque les copies supplémentaires piochées lors d'une même partie n'auraient pas d'effet (un joueur ne peut pas gagner deux fois le même Objet précis). La solution a été de régler les ratios des autres Zones autour de ces Zones uniques, pour avoir un levier d'équilibrage sur leur taux d'apparition. Le nombre d'Objets qui apparaissent dépendant des Zones, il s'agit de la métrique que je surveillais lors de l'ajustement de ces ratios. Il était nécessaire de prévenir les cas de figures extrêmes, surtout le cas où aucun Objet n'apparait, la surapparition d'Objets est moins gênante car elle apporte au moins une expérience intéressante pour le joueur. Ainsi, l'ajout d'un Objet obligatoire sur la "Fin de Chapitre" (qui est obligatoirement présent) permet de garantir au moins un Objet par Chapitre, ou l'usage de Zones comme la "Place", qui propose aux joueur de faire apparaitre un Objet si ils décident de faire aussi apparaitre une Créature supplémentaire, ajoutant une notion de prise de risque.</p>
+								</div>
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/placecard.png" alt="" />
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/trappeurcard.png" alt="" />
+								</div>
+								<div class="col-8 col-12-mobile">
+									<p class="sidecont">Les Créatures ont un peu changé également sur leur répartition. Par défaut, chaque Créature est présente en 2 exemplaires dans la pile, pour un total de 6 cartes uniques et 12 Créatures au total. Au début du prototype, l'Ermite Mycophage était une Créature en un seul exemplaire, supposé être une rencontre plus rare et plus difficile. Dans les faits, cela a juste creusé un gouffre entre les parties avec l'Ermite et les parties sans, qui étaient singulièrement plus simples. La solution a été de le retirer de la pile des Créatures normales, et il apparait désormais selon des conditions particulières que les joueurs peuvent déclencher si ils le souhaitent, en échange d'une récompense appropriée. Les Créatures individuelles ont reçu plusieurs ajustement durant leur cycle de vie, afin de s'assurer que toutes les combinaisons de créatures soient à peu près équivalentes en terme de difficulté, et d'éviter les écarts de difficulté importants.</p>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-8 col-12-mobile">
+									<p class="sidecont">Les Objets ont surtout reçu des changements d'équilibrage, pour s'assurer qu'il n'y ait pas de différence trop grande entre leur efficacité. Certains Objets conservent en revanche des utilisations plus particulières, ou demandent des combinaisons avec d'autres Objets pour utiliser leur plein potentiel, mais il restent tous utiles pour les joueurs, et aucun n'a d'effet négatif particulier qui accenturait cette différence. Les Objets représentent la liste la plus longue, et sont relativement peu représentés à chaque partie par rapport aux autres types de cartes (22 Objets uniques dans la pile, et en moyenne 5 à 6 Objets apparaissent à chaque partie), ce qui représentent la plus grande différence d'une partie à l'autre. Pour permettre de designer des Objets plus spécifiques, ou d'un niveau de puissance anormal, l'ajout de la mécanique de récompense de Boss a été implémentée, qui permet d'offrir aux joueurs un Objet de leur choix parmi une sélection, ce qui permet de s'assurer qu'ils aient l'opportunité de les prendre à chaque partie, et ainsi construire des synergies autour de ces Objets.</p>
+								</div>
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/flacon.png" alt="" />
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/peintrecard.png" alt="" />
+								</div>
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/fragment.png" alt="" />
+								</div>
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/faux.png" alt="" />
+								</div>
+							</div>
+							<p>Exemple d'Objets donnés en récompense d'un Boss. Ils permettent également une transition plus lisse vers le prochain Acte, plus difficile.</p>
+
+							<p></p>
+							<h3>L'aléatoire dans les combats</h3>
+							<p></p>
+
+							<p class="sidecont">Il est tout à fait débatable d'intégrer de l'aléatoire sur la résolution des attaques dans un jeu qui se veut stratégique, mais l'ajout d'incertitude lors de la résolution permet d'inciter les joueurs à limiter les risques et à prévoir des plans B. Souvent, la prise de décision des joueurs se fera entre un plan risqué, qui laisse un joueur exposé à des dégâts, et un plan plus sûr, qui limite les dégâts subits par l'équipe et permet une position plus favorable au prochain tour. La mécanique de riposte n'étant effective qu'au corps à corps/à distance selon la Créature, il y a toujours possibilité pour les joueurs de se positionner de manière à ne pas risquer de subir des dégâts, et donne davantage d'intérêt au positionnement pendant la phase des joueurs (tandis que les aptitudes des Créatures valorisent de positionnement final des joueurs à la fin de leur phase). Cela me permet également de designer les chances de toucher comme une ressource, avec des objets qui affectent les résultats des dés, le seuil de précision, ou la valeur de riposte des ennemis. Avec cette incertitude, j'encourage également la discussion entre les joueurs, puisqu'il n'y a désormais pas forcément un plan optimal, selon les risques de rater une ou plusieurs attaques.</p>
+
+							<div class="row">
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/bayou.png" alt="" />
+								</div>
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/dynamo.png" alt="" />
+								</div>
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/tentacule.png" alt="" />
+								</div>
+							</div>
+						</div>
+
+						<h2><a href="index.html#codex">Retour à CODEX</a></h2>
+					</section>
+
+				
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Contact -->
+				<section id="contact" class="four">
+					<div class="container">
+
+						<header>
+							<h2>Contact</h2>
+						</header>
+
+						<p>Si vous voulez me contacter, je suis disponible par mail :
+							<br />
+							owen.davies@laposte.net
+							<br />
+							Ou sur <a href="https://www.linkedin.com/in/owen-davies-36aaa01a2/">LinkedIn</a> ou <a href="https://scaelin.itch.io/">itch.io</a>
+						</p>
+
+					</div>
+				</section>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
