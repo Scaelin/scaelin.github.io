@@ -22,14 +22,13 @@
 						<div id="logo">
 							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
 							<h1 id="title">Owen Davies</h1>
-							<p>Diplômé en Game Design</p>
+							<p>Game Design</p>
 						</div>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
 								<li><a href="index.html#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-								<li><a href="index.html#codex" id="codex-link"><span class="icon solid fa-th">CODEX</span></a></li>
 								<li><a href="index.html#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
 								<li><a href="index.html#about" id="about-link"><span class="icon solid fa-user">Compétences</span></a></li>
 								<li><a href="index.html#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
@@ -59,17 +58,88 @@
 						<div class="container">
 
 							<header>
-								<h2 class="alt">Aléatoire : Variance et rejouabilité</h2>
-								<p>Limites de la variance et place de l'aléatoire dans la résolution des combats</p>
+								<h2 class="alt">CODEX : Post mortem de prototype</h2>
 							</header>
 
 						</div>
 					</section>
 
-				
+					<section id="about" class="two">
+						<div class="container">
+							<div class="row">
+								<p class="sidecont">
+									J'ai travaillé sur CODEX pendant environ un an, et le but était d'en faire une lettre d'amour au genre roguelike sous forme de jeu de société. Les piliers fondamentaux du jeu étaient les suivants : avoir un jeu rejouable, challengeant, tactique, coopératif, et relativement rapide. Au fil des versions, ces différents critères de réussites ont tous été atteints, à l'exception de la rapidité, qui a constamment posé problème tout au long du développement. Bien que je pense qu'il existe des solutions qui permettraient d'allier tous ces critères, je met pour le moment le projet de côté, car je considère qu'il me faudrait revoir en profondeur une grosse partie du jeu tel qu'il est actuellement. Les pistes d'évolution sont les suivantes :
+								</p>
+								<div class="col-4 col-12-mobile">
+									- Réduire la complexité des créatures à combattre, et ainsi faciliter et accélérer leur compréhension et la plannification des joueurs (réduit le temps de jeu, mais réduit la profondeur tactique)
+								</div>
+								<div class="col-4 col-12-mobile">
+									- Condenser l'expérience globale ajustant la structure, une partie serait un seul acte (réduit le temps pour une session, mais pas pour une partie complète)
+								</div>
+								<div class="col-4 col-12-mobile">
+									- Transformer le projet en jeu vidéo, pour automatiser la gestion des créatures (réduit beaucoup le temps de jeu, mais abandonne le support original pour un support potentiellement moins convivial)
+								</div>
+								<p class="sidecont">
+									Le reste de cet article relate quelques leçons apprises et écrites lors du développement de CODEX, sur la gestion de l'aléatoire et sur le rythme de jeu, que je ne manquerais pas d'appliquer lorsque je reconstruirais le projet.
+								</p>
+							</div>
+						</div>
+					</section>
+
+
+					<section id="about" class="three">
+						<div class="container">
+
+							<header>
+								<h2>Une expérience compacte</h2>
+							</header>
+							<div class="row">				
+								<div class="col-8 col-12-mobile">
+									<p class="sidecont">Un des piliers de design de CODEX partait de ce postulat : j'apprécie les dungeon crawlers mais entre la mise en place et le temps de jeu, on se retrouve avec des sessions de jeu très longues, des et des jeux chers en raison d'un matériel important. Je souhaitais donc construire CODEX en opposition à cela, ce qui a motivé à limiter le matériel à des cartes et quelques dés (Le jeu final comportera 200 cartes et 8 dés), et à choisir une structure plus légère, permettant des parties plus rapides et/ou une "sauvegarde" simple de la partie pour la scinder en plusieurs sessions. J'avais donc rapidement la structure en trois Actes qui s'est mise en place, avec initialement deux Chapitres normaux, puis un Chapitre de Boss pour conclure chaque Acte. Il est assez simple de mettre de côté les Objets de chaque joueur et de faire une pause et ranger le jeu entre chaque Chapitre, donc cet objectif était assez simple. En revanche, j'ai largement sous-estimé la durée de jeu. En effet, environ 80% du temps de jeu réside dans les discussions entre les joueurs et leur plannification. On arrivait à un premier Acte à 4 joueurs qui se terminait en environ 2h, ce qui est au moins deux fois plus que ce que j'imaginais. 
+									</p>
+								</div>
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/fragmentdeternite.png" alt="" />
+								</div>
+							</div>
+
+							<div class="row">	
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/maree.png" alt="" />
+								</div>			
+								<div class="col-8 col-12-mobile">
+									<p class="sidecont">Une des raisons qui expliquait une telle différence avec l'estimation était la volonté d'optimisation des joueurs, qui profitaient de la présence du dernier ennemi de chaque Chapitre pour faire durer, et jouer avec son comportement pour le rendre inoffensif, pendant qu'ils se préparaient au Chapitre suivant en réalisant des échanges entre eux, ou des repos par exemple. J'ai tenté d'introduire une mécanique de "Marée" : Une carte Marée avançait progressivement à chaque tour, condamnant les Zones derrière les joueurs pour les pousser vers l'avant et empêcher ce genre de stratégie de fonctionner. Malheureusement, l'introduction de cette mécanique était problématique, puisqu'en réalité elle punissait davantage les équipes qui avaient des configurations complexes que les équipes qui étaient larges et avaient du temps pour réaliser des repos et des échanges de toute façon.
+									</p>
+								</div>
+							</div>
+
+							<div class="row">					
+								<div class="col-8 col-12-mobile">
+									<p class="sidecont">La mécanique de la Marée a donc été supprimée, et j'ai choisi d'aller dans le sens des joueurs, et d'officialiser une "phase libre", qui se déclenche lorsque les joueurs ont éliminé tous les ennemis de l'étage, dans laquelle ils ont des points d'action illimités, ce qui leur permet de boucler toute leur préparation en un tour de table et de ne pas être ralentis par le fonctionnement strict des tours de jeu. En réalité, j'ai surtout validé un comportement que certains joueurs faisaient déjà, incitant donc les joueurs qui perdaient du temps à faire de même, ce qui me permet d'écarter une partie désagréable de l'expérience de jeu et me concentrer sur les situations intéressantes de confrontation.
+									</p>
+								</div>
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/petitsablier.png" alt="" />
+								</div>	
+							</div>
+
+							<p></p>
+							<h3>Supprimer un Chapitre</h3>
+							<p></p>
+
+							<div class="row">	
+								<div class="col-4 col-12-mobile">
+									<img class="image featured" src="images/codexgame/cachesecrete.png" alt="" />
+								</div>			
+								<div class="col-8 col-12-mobile">
+									<p class="sidecont">Au fur et à mesure des versions, je restais confronté au même problème : le jeu était toujours trop long par rapport aux objectifs que je m'étais fixé. En parallèle, j'étais confronté à un problème de rythme de jeu à plus petite échelle, dans la mesure où les deux premiers Chapitres présentaient virtuellement la même difficulté (étant construits sur les mêmes principes) tandis que les joueurs progressaient dans leurs puissance, avec les Objets qu'ils accumulaient. Cela avait comme conséquence d'avoir une courbe de difficulté globale qui baissait au deuxième Chapitre, le rendant moins intéressant que le premier en terme de challenge, ce qui était la source du problème de rythme évoqué. La solution a été assez radicale : supprimer le deuxième Chapitre complètement. Ainsi, les Actes passent de 3 à 2 Chapitres, et le dernier reste un Chapitre de Boss. Cela a, logiquement, réduit d'un tiers la durée de jeu, et on obtient maintenant une progression de difficulté en adéquation avec l'acquisition de nouveaux outils pour les joueurs, réglant deux problèmes en un. Le seul effet secondaire notable était que cela modifiait à la fois le nombre d'Objets acquis par les joueurs à chaque Acte, mais également les Objets disponibles pour les joueurs avant de combattre le Boss. Ces effets indésirables ont été réglés en ajustant les ratios de Zones pour réhausser la quantité d'Objets par Chapitre, et en utilisant des designs comme celui de la "Cache Secrète". Actuellement, la durée de jeu est descendue à des temps beaucoup plus satisfaisants, mais reste plus long avec davantage de joueurs, qui est un problème auquel je n'apporte actuellement pas de solution satisfaisante.</p>
+								</div>
+							</div>
+						</div>
+					</section>
 
 				<!-- About Me -->
-					<section id="about" class="two">
+					<section id="about" class="four">
 						<div class="container">
 
 							<header>
@@ -90,7 +160,7 @@
 
 							<div class="row">
 								<div class="col-8 col-12-mobile">
-									<p class="sidecont">Certaines Zones permettent également d'accéder à des Objets spécifiques, des Secrets, ou des Boss intermédiaires. Ces Zones ne peuvent pas être présentes en plusieurs exemplaires, puisque les copies supplémentaires piochées lors d'une même partie n'auraient pas d'effet (un joueur ne peut pas gagner deux fois le même Objet précis). La solution a été de régler les ratios des autres Zones autour de ces Zones uniques, pour avoir un levier d'équilibrage sur leur taux d'apparition. Le nombre d'Objets qui apparaissent dépendant des Zones, il s'agit de la métrique que je surveillais lors de l'ajustement de ces ratios. Il était nécessaire de prévenir les cas de figures extrêmes, surtout le cas où aucun Objet n'apparait, la surapparition d'Objets est moins gênante car elle apporte au moins une expérience intéressante pour le joueur. Ainsi, l'ajout d'un Objet obligatoire sur la "Fin de Chapitre" (qui est obligatoirement présent) permet de garantir au moins un Objet par Chapitre, ou l'usage de Zones comme la "Place", qui propose aux joueur de faire apparaitre un Objet si ils décident de faire aussi apparaitre une Créature supplémentaire, ajoutant une notion de prise de risque.</p>
+									<p class="sidecont">Certaines Zones permettent également d'accéder à des Objets spécifiques, des Secrets, ou des Boss intermédiaires. Ces Zones ne peuvent pas être présentes en plusieurs exemplaires, puisque les copies supplémentaires piochées lors d'une même partie n'auraient pas d'effet (un joueur ne peut pas gagner deux fois le même Objet précis). La solution a été de régler les ratios des autres Zones autour de ces Zones uniques, pour avoir un levier d'équilibrage sur leur taux d'apparition. Le nombre d'Objets qui apparaissent dépendant des Zones, il s'agit de la métrique que je surveillais lors de l'ajustement de ces ratios. Il était nécessaire de prévenir les cas de figures extrêmes, surtout le cas où aucun Objet n'apparait, la surapparition d'Objets est moins gênante car elle apporte au moins une expérience intéressante pour le joueur. Ainsi, l'ajout d'un Objet obligatoire sur la "Fin de Chapitre" (qui est obligatoirement présent) permet de garantir au moins un Objet par Chapitre, ou l'usage de Zones comme la "Place marchande", qui propose aux joueur de faire apparaitre un Objet si ils décident de faire aussi apparaitre une Créature supplémentaire, ajoutant une notion de prise de risque.</p>
 								</div>
 								<div class="col-4 col-12-mobile">
 									<img class="image featured" src="images/codexgame/placecard.png" alt="" />
@@ -145,9 +215,26 @@
 									<img class="image featured" src="images/codexgame/tentacule.png" alt="" />
 								</div>
 							</div>
-						</div>
+							<div class="row">
+								<p class="sidecont">
+									Quelques ressources supplémentaires si vous voulez en savoir plus sur le jeu tel qu'il a été laissé en suspend, avant sa future et éventuelle reconstruction :
+								</p>
 
-						<h2><a href="index.html#codex">Retour à CODEX</a></h2>
+								<div class="col-4 col-12-mobile">
+									<a href="dl/CODEX - Règles du jeu.pdf" download class="button">Règles de CODEX<br>v2.3.1</a>
+								</div>
+								<div class="col-4 col-12-mobile">
+									<a href="dl/PrintNPlay - CODEX.zip" download class="button">Print'n'Play<br>v2.3.1</a>
+								</div>
+								<div class="col-4 col-12-mobile">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2724748444" class="button">Tabletop Simulator<br>Premier Acte, v2.3.1</a>
+								</div>
+								<p></p>
+							</div>
+							<h2>
+								<a href="codexgalerie.html">Galerie d'illustrations</a>
+							</h2>
+						</div>
 					</section>
 
 				
